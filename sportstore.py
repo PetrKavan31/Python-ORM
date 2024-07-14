@@ -46,17 +46,30 @@ def create_products(session, sales_id, product_type, product_name, quantity, man
    session.commit()
    return products 
 
+def get_product():
+    allproducts = session.query(Products).all()
+    for product in allproducts:
+        print(f'Product: {product.id} , {product.product_name}, {product.product_type}, {product.quantity} pcs, {product.manufacturer}') 
+
+def search_in_products(name_query):
+    items = session.query(Products).filter(Products.product_type.ilike(f'%{name_query}%')).all()
+    if items:
+        for item in items:
+            print(f"ID: {item.id}, Product Name: {item.product_name}, Quantity: {item.quantity}, Type: {item.product_type}")
+    else:
+        print("No items found")
 
 if __name__ == '__main__':
 
 
     
-    sales = create_sales(session, 'Olda Novak', 1400, 'Ota')
-    print(f'Created sale: {sales.customer_name}, {sales.sum_sale}, {sales.seller_name} ')
+    #sales = create_sales(session, 'Alan Rukaa', 2000, 'Ota')
+    #print(f'Created sale: {sales.customer_name}, {sales.sum_sale}, {sales.seller_name} ')
 
-    products = create_products(session, sales.id, 'shirt', 'Basic1', 35, 'Adidas')
-    print(f'Created product: {products.sales_id}, {products.product_type}, {products.product_name}, {products.quantity}, {products.manufacturer}')
+    #products = create_products(session, sales.id, 'shoes', 'Standard3', 25, 'Blackandwhite')
+    #print(f'Created product: {products.sales_id}, {products.product_type}, {products.product_name}, {products.quantity}, {products.manufacturer}')
     
-    
+    get_product()
+    search_in_products('shoes')
 session.close()
 
