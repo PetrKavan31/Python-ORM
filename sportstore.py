@@ -59,6 +59,12 @@ def search_in_products(name_query):
     else:
         print("No items found")
 
+def get_top_3_clients(session):
+    sql = text('''
+        SELECT customer_name FROM sales ORDER BY dat_reg LIMIT 3
+    ''')
+    return session.execute(sql).fetchall()
+
 if __name__ == '__main__':
 
 
@@ -71,5 +77,10 @@ if __name__ == '__main__':
     
     get_product()
     search_in_products('shoes')
+
+    customers = get_top_3_clients(session)
+    for customer in customers:
+        print(f'Klient: {customer.customer_name}')
+
 session.close()
 
