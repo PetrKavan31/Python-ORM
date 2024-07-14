@@ -65,6 +65,12 @@ def get_top_3_clients(session):
     ''')
     return session.execute(sql).fetchall()
 
+def most_successful_seller(session):
+    sql = text('''
+        SELECT seller_name, sum_sale FROM sales ORDER BY sum_sale DESC LIMIT 1
+    ''')
+    return session.execute(sql).fetchall()
+
 if __name__ == '__main__':
 
 
@@ -80,7 +86,13 @@ if __name__ == '__main__':
 
     customers = get_top_3_clients(session)
     for customer in customers:
-        print(f'Klient: {customer.customer_name}')
+        print(f'Custormer: {customer.customer_name}')
+
+    sellers = most_successful_seller(session)
+    for seller in sellers:
+        print(f'Seller: {seller.seller_name}')
+
+    
 
 session.close()
 
