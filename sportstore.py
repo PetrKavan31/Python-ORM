@@ -57,7 +57,7 @@ def search_in_products(name_query):
         for item in items:
             print(f"ID: {item.id}, Product Name: {item.product_name}, Quantity: {item.quantity}, Type: {item.product_type}")
     else:
-        print("No items found")
+        print("No products found")
 
 def get_top_3_clients(session):
     sql = text('''
@@ -67,14 +67,14 @@ def get_top_3_clients(session):
 
 def most_successful_seller(session):
     sql = text('''
-        SELECT seller_name, sum_sale FROM sales ORDER BY sum_sale DESC LIMIT 1
+         SELECT seller_name, SUM(sum_sale) AS totalsum FROM sales GROUP BY seller_name ORDER BY totalsum DESC LIMIT 1
     ''')
     return session.execute(sql).fetchall()
+
 
 if __name__ == '__main__':
 
 
-    
     #sales = create_sales(session, 'Alan Rukaa', 2000, 'Ota')
     #print(f'Created sale: {sales.customer_name}, {sales.sum_sale}, {sales.seller_name} ')
 
@@ -82,6 +82,7 @@ if __name__ == '__main__':
     #print(f'Created product: {products.sales_id}, {products.product_type}, {products.product_name}, {products.quantity}, {products.manufacturer}')
     
     get_product()
+    
     search_in_products('shoes')
 
     customers = get_top_3_clients(session)
@@ -91,7 +92,7 @@ if __name__ == '__main__':
     sellers = most_successful_seller(session)
     for seller in sellers:
         print(f'Seller: {seller.seller_name}')
-
+       
     
 
 session.close()
