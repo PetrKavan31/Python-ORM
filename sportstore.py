@@ -72,28 +72,46 @@ def most_successful_seller(session):
     return session.execute(sql).fetchall()
 
 
+def main():
+    while True:
+        print("\nOptions:")
+        print("1. Displays information about all products")
+        print("2. Displays information about a specific product type")
+        print("3. Shows the top 3 regular clients by the registration date")
+        print("4. Displays information about the most successful seller")
+        print("5. Exit")
+        
+
+        choice = input("Choose an option: ")
+
+        if choice == '1':
+            get_product()
+        elif choice == '2':
+            name = input("Enter the product type: ")            
+            search_in_products(name)
+        elif choice == '3':           
+            customers = get_top_3_clients(session)
+            for customer in customers:
+                print(f'Custormer: {customer.customer_name}')
+        elif choice == '4':
+            sellers = most_successful_seller(session)
+            for seller in sellers:
+                print(f'Seller: {seller.seller_name}')
+        elif choice == '5':
+            print("Exiting...")
+            break
+        else:
+            print("Invalid choice, please try again")
+
 if __name__ == '__main__':
-
-
+    main()
+    
     #sales = create_sales(session, 'Alan Rukaa', 2000, 'Ota')
     #print(f'Created sale: {sales.customer_name}, {sales.sum_sale}, {sales.seller_name} ')
 
     #products = create_products(session, sales.id, 'shoes', 'Standard3', 25, 'Blackandwhite')
     #print(f'Created product: {products.sales_id}, {products.product_type}, {products.product_name}, {products.quantity}, {products.manufacturer}')
     
-    get_product()
-    
-    search_in_products('shoes')
+    session.close()
 
-    customers = get_top_3_clients(session)
-    for customer in customers:
-        print(f'Custormer: {customer.customer_name}')
-
-    sellers = most_successful_seller(session)
-    for seller in sellers:
-        print(f'Seller: {seller.seller_name}')
-       
-    
-
-session.close()
 
