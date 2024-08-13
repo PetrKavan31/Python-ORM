@@ -37,40 +37,40 @@ rounds()
 count = 1
 while count < 10:
     p = 'X' if count % 2 != 0 else 'O'
-    position_X = int(input(f"Player {p} turn. Enter the position (1-9): "))
-    if position_X == 1:
+    position = int(input(f"Player {p} turn. Enter the position (1-9): "))
+    if position == 1:
         a[2] = p
         count += 1
         rounds()
-    elif position_X == 2:
+    elif position == 2:
         a[6] = p
         count += 1
         rounds()
-    elif position_X == 3:
+    elif position == 3:
         a[10] = p
         count += 1
         rounds()
-    elif position_X == 4:
+    elif position == 4:
         b[2] = p
         count += 1
         rounds()
-    elif position_X == 5:
+    elif position == 5:
         b[6] = p
         count += 1
         rounds()
-    elif position_X == 6:
+    elif position == 6:
         b[10] = p
         count += 1
         rounds()
-    elif position_X == 7:
+    elif position == 7:
         c[2] = p
         count += 1
         rounds()
-    elif position_X == 8:
+    elif position == 8:
         c[6] = p
         count += 1
         rounds()
-    elif position_X == 9:
+    elif position == 9:
         c[10] = p
         count += 1
         rounds()
