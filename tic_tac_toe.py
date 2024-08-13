@@ -1,26 +1,26 @@
-a = list('|   |   |   |')
-b = list('|   |   |   |')
-c = list('|   |   |   |')
-d = list('+---+---+---+')
+a = list("|   |   |   |")
+b = list("|   |   |   |")
+c = list("|   |   |   |")
+d = list("+---+---+---+")
 
 def plus_minus():
     for elem in d:
-        print(elem, end='')
+        print(elem, end="")
     print()
 
 def line_1():
     for elem in a:
-        print(elem, end='')
+        print(elem, end="")
     print()
 
 def line_2():
     for elem in b:
-        print(elem, end='')
+        print(elem, end="")
     print()
 
 def line_3():
     for elem in c:
-        print(elem, end='')
+        print(elem, end="")
     print()
 
 def rounds():
@@ -37,7 +37,7 @@ rounds()
 count = 1
 while count < 10:
     p = 'X' if count % 2 != 0 else 'O'
-    position_X = int(input(f'Player {p} turn. Enter the position (1-9): '))
+    position_X = int(input(f"Player {p} turn. Enter the position (1-9): "))
     if position_X == 1:
         a[2] = p
         count += 1
@@ -75,5 +75,5 @@ while count < 10:
         count += 1
         rounds()
     else:
-        print('Wrong number')
+        print("Wrong number")
 print("End of Game")
