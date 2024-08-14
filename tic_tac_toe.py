@@ -4,24 +4,16 @@ c = list("|   |   |   |")
 d = list("+---+---+---+")
 
 def plus_minus():
-    for elem in d:
-        print(elem, end="")
-    print()
+    print(''.join(d))
 
 def line_1():
-    for elem in a:
-        print(elem, end="")
-    print()
+    print(''.join(a))
 
 def line_2():
-    for elem in b:
-        print(elem, end="")
-    print()
+    print(''.join(b))
 
 def line_3():
-    for elem in c:
-        print(elem, end="")
-    print()
+    print(''.join(c))
 
 def rounds():
     plus_minus()
