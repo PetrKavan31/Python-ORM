@@ -2,31 +2,31 @@
 # X.X
 # .OX
 
-board = list(".........")
+board = list(".........") # Model
 
-def print_board():
+def print_board(): # View
     print("".join(board[:3]))
     print("".join(board[3:6]))
     print("".join(board[6:]))
 
-def player_move():
+def player_move(): # Controller and View
     count = 1
     while count < 10:
         player = 'X' if count % 2 != 0 else 'O'
         position = int(input(f"Player {player} turn. Enter the position (1-9): "))
         if position > 9 or position < 1:
-            print("Wrong number")
+            print("Wrong number.")
             continue
         count += 1
         position_number(position, player)
         print_board()
-    print("End of game")
+    print("End of game.")
 
-def position_number(position, player):
+def position_number(position, player): # View
     for i in range((position-1),position):
         board[i] = player
 
-def play_game():
+def play_game(): # View
     print_board()
     player_move()
 
