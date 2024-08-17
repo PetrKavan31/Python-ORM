@@ -14,7 +14,7 @@ def print_board():
         print("".join(board[i]))
         i+=1
 
-# ---------------------------- [print("".join(x)) for x in board]
+print_board()
 
 def player_move():
     count = 1
