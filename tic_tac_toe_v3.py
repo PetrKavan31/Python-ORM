@@ -9,8 +9,6 @@ def print_board():
     print("".join(board[3:6]))
     print("".join(board[6:]))
 
-print_board()
-
 def player_move():
     count = 1
     while count < 10:
@@ -29,4 +27,5 @@ def position_number(position, player):
     for i in range((position-1),position):
         board[i] = player
 
+print_board()
 player_move()

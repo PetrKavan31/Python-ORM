@@ -7,19 +7,15 @@ board = [
     list("..."),
     list("..."),
 ]
-
 def print_board():
     i = 0
     while i < len(board):
         print("".join(board[i]))
         i+=1
 
-print_board()
-
 def player_move():
     count = 1
-    while count < 10:
-    
+    while count < 10:    
         p = 'X' if count % 2 != 0 else 'O'
         position = int(input(f"Player {p} turn. Enter the position (1-9): "))
         count += 1
@@ -46,4 +42,5 @@ def position_number(position, p):
     elif position == 9:
         board[2][2] = p
 
+print_board()
 player_move()
