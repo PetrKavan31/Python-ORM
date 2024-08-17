@@ -18,7 +18,6 @@ def player_move():
             print("Wrong number")
             continue
         count += 1
-        # print(count)
         position_number(position, player)
         print_board()
     print("End of game")
@@ -27,5 +26,8 @@ def position_number(position, player):
     for i in range((position-1),position):
         board[i] = player
 
-print_board()
-player_move()
+def play_game():
+    print_board()
+    player_move()
+
+play_game()
