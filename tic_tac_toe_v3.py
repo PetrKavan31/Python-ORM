@@ -2,7 +2,7 @@
 # X.X
 # .OX
 
-board = list(".........") # Model
+board = ["."] * 9 # Model
 
 def print_board(): # View
     print("".join(board[:3]))
@@ -11,10 +11,10 @@ def print_board(): # View
 
 def player_move(): # Controller and View
     count = 1
-    while count < 10:
+    for count in range(9):
         player = 'X' if count % 2 != 0 else 'O'
         position = int(input(f"Player {player} turn. Enter the position (1-9): "))
-        if position > 9 or position < 1:
+        if position not in range(1,10):
             print("Wrong number.")
             continue
         count += 1
@@ -23,6 +23,8 @@ def player_move(): # Controller and View
     print("End of game.")
 
 def position_number(position, player): # View
+    board[(position - 1)] = player
+    
     for i in range((position-1),position):
         board[i] = player
 
