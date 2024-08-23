@@ -11,7 +11,7 @@ def print_board(): # View
 
 def player_move(): # Controller and View
     count = 1
-    for count in range(9):
+    while count < 10:
         player = 'X' if count % 2 != 0 else 'O'
         position = int(input(f"Player {player} turn. Enter the position (1-9): "))
         if position not in range(1,10):
