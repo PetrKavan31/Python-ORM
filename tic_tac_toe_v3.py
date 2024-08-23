@@ -23,10 +23,7 @@ def player_move(): # Controller and View
     print("End of game.")
 
 def position_number(position, player): # View
-    board[(position - 1)] = player
-    
-    for i in range((position-1),position):
-        board[i] = player
+    board[(position - 1)] = player  
 
 def play_game(): # View
     print_board()
