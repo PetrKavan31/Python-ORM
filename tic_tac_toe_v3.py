@@ -5,9 +5,9 @@
 board = ["."] * 9 # Model
 
 def print_board(): # View
-    print("".join(board[:3]))
-    print("".join(board[3:6]))
-    print("".join(board[6:]))
+    for i in range(3):
+        print("".join(board[(i * 3):((i + 1) * 3)]))
+
 
 def player_move(): # Controller and View
     count = 1
