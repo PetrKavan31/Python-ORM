@@ -8,7 +8,6 @@ def print_board(): # View
     for i in range(3):
         print("".join(board[(i * 3):((i + 1) * 3)]))
 
-
 def player_move(): # Controller and View
     count = 1
     while count < 10:
