@@ -8,8 +8,7 @@ class TicTacToe:
         return self.board.count('.') == 0
 
     def make_move(self, player_on_turn, board):
-        count = 1
-        while count < 10:
+        while not game.is_over():
             position = int(input(f"Player {player_on_turn} turn. Enter the position (1-9): "))
             if position not in range(1,10):
                 print("Wrong number.")
@@ -19,7 +18,6 @@ class TicTacToe:
             else: 
                 print("The position is covered, make a move to another position.")
                 continue
-            count += 1
             player_on_turn = 'X' if player_on_turn == 'O' else 'O'
             game.print_board(game.board)
         print("End of game.")
