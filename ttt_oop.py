@@ -9,7 +9,7 @@ class TicTacToe:
 
     def make_move(self, player_on_turn, board):
         while not game.is_over():
-            position = int(input(f"Player {player_on_turn} turn. Enter the position (1-9): "))
+            position = self.ask_player_position()
             if position not in range(1,10):
                 print("Wrong number.")
                 continue
@@ -22,9 +22,13 @@ class TicTacToe:
             game.print_board(game.board)
         print("End of game.")
 
-    def print_board(self, board): # View
+    def print_board(self, board):
         for i in range(0,9,3):
             print("".join(board[i:(i+3)]))
+
+    def ask_player_position(self):
+        player_on_turn = game.player_on_turn
+        return int(input(f"Player {player_on_turn} turn. Enter the position (1-9): "))
 
 game = TicTacToe()
 
