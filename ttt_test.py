@@ -3,13 +3,13 @@ class TicTacToe:
         self.board = ["."] * 9
         self.player_on_turn = 'X'
         self.winner = None
-    
+
     def get_winner(self) -> str:
         return self.winner
 
     def is_over(self):
-        return  self.winner is not None or self.board.count('.') == 0
-    
+        return self.winner is not None or self.board.count('.') == 0
+
     def is_winner(self, player: str) -> bool:
         lines = [(0, 1, 2), (3, 4, 5), (6, 7, 8),
                  (0, 3, 6), (1, 4, 7), (2, 5, 8),
@@ -48,11 +48,11 @@ def get_user_input(game: TicTacToe) -> int:
                 return position - 1
         except ValueError:
             pass
-        
+
         draw_board(game.board)
         if position in range(1, 10):
-            print("Tile is covered, make a move to another tile.")
-        else:    
+            print("Tile is covered.")
+        else:
             print("Wrong number.")
 
 def main():
