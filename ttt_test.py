@@ -62,6 +62,7 @@ def main():
         position = get_user_input(game)
         game.make_move(position) 
     draw_board(game.board)
+    print(f"The winner is player {game.winner}.")
     print("End of game.")
 
 if __name__ == "__main__":
